@@ -11,8 +11,8 @@ class LFUCache(BaseCaching):
     Implements an LFUCache (Least Frequently Used).
 
     Attributes:
-        __stats (dict): A dictionary tracking the access count for each cache key.
-        __rlock (RLock): Lock to synchronize access and prevent race conditions.
+        __stats (dict): A dictionary tracking the access count
+        __rlock (RLock): Lock to synchronize access
     """
     def __init__(self):
         """Initializes the cache and sets instance attributes.
@@ -41,7 +41,7 @@ class LFUCache(BaseCaching):
         return value
 
     def _balance(self, keyIn):
-        """Removes the least frequently used item if the cache size limit is reached.
+        """Removes the least frequently
         """
         keyOut = None
         with self.__rlock:
