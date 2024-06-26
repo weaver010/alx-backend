@@ -22,4 +22,3 @@ class BasicCache(BaseCaching):
         '''Retrieve the value from `self.cache_data` associated with `key`
         '''
         return self.cache_data.get(key, None)
-
