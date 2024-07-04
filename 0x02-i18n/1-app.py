@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
-"""Module for task 1
+"""A Basic Flask app.
 """
-from flask import Flask, render_template
 from flask_babel import Babel
-
-app = Flask(__name__)
-babel = Babel(app)
-app.url_map.strict_slashes = False
+from flask import Flask, render_template
 
 
 class Config:
@@ -17,18 +13,18 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app = Flask(__name__)
 app.config.from_object(Config)
+app.url_map.strict_slashes = False
+babel = Babel(app)
 
 
-@app.route("/")
-def index_1() -> str:
-    """The index function displays the home page of the web application.
-
-    Returns:
-        str: contents of the home page.
+@app.route('/')
+def get_index() -> str:
+    """The home/index page.
     """
-    return render_template("1-index.html")
+    return render_template('1-index.html')
 
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
